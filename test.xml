@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
+    <NamespaceUris>
+        <Uri>http://example.org/trafficlights</Uri>
+    </NamespaceUris>
+    <Models>
+        <Model ModelUri="http://example.org/trafficlights" Version="1.0.0" PublicationDate="2023-01-01T00:00:00Z" />
+    </Models>
+    <UAObjectType NodeId="ns=1;i=1001" BrowseName="1:TrafficLightType">
+        <DisplayName>Traffic Light Type</DisplayName>
+        <References>
+            <Reference ReferenceType="HasSubtype" IsForward="false">i=58</Reference> <!-- BaseObjectType -->
+        </References>
+    </UAObjectType>
+    <UAObject NodeId="ns=1;i=2001" BrowseName="1:TrafficLight1">
+        <DisplayName>Traffic Light 1</DisplayName>
+            <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1001</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">i=85</Reference> <!-- ObjectsFolder -->
+        </References>
+    </UAObject>
+    <UAVariable NodeId="ns=1;i=3001" BrowseName="1:Red" DataType="Boolean">
+        <DisplayName>Red Light</DisplayName>
+        <ValueRank>-1</ValueRank>
+        <AccessLevel>2</AccessLevel>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=2001</Reference>
+        </References>
+        <Value>
+            <Boolean>true</Boolean>
+        </Value>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;i=3002" BrowseName="1:Yellow" DataType="Boolean">
+        <DisplayName>Yellow Light</DisplayName>
+         <AccessLevel>3</AccessLevel>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=2001</Reference>
+        </References>
+        <Value>
+            <Boolean>false</Boolean>
+        </Value>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;i=3003" BrowseName="1:Green" DataType="Boolean">
+        <DisplayName>Green Light</DisplayName>
+         <AccessLevel>3</AccessLevel>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=2001</Reference>
+        </References>
+        <Value>
+            <Boolean>false</Boolean>
+        </Value>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;i=3004" BrowseName="1:Green" DataType="Boolean">
+        <DisplayName>Request Button</DisplayName>
+         <AccessLevel>3</AccessLevel>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=2001</Reference>
+        </References>
+        <Value>
+            <Boolean>false</Boolean>
+        </Value>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;i=3005" BrowseName="1:Green_time_left" DataType="Int16">
+        <DisplayName>Green_time_left</DisplayName>
+         <AccessLevel>3</AccessLevel>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=2001</Reference>
+        </References>
+        <Value>
+            <Int16>0</Int16>
+        </Value>
+    </UAVariable>
+</UANodeSet>
