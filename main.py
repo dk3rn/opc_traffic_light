@@ -58,7 +58,7 @@ async def run_server(endpoint):
 
     # XML Import absichern
     importer = XmlImporter(server)
-    await importer.import_xml("test.xml")
+    await importer.import_xml("nodeset2_traffic_light.xml")
 
     # Debugging: Überprüfen der importierten Knoten
     children = await objects.get_children()
