@@ -102,7 +102,3 @@ class TrafficLightApp(tk.Tk):
         else:
             self.set_light('YELLOW')
 
-
-if __name__ == "__main__":
-    app = TrafficLightApp()
-    app.mainloop()

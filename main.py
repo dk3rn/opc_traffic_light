@@ -58,7 +58,12 @@ async def run_server(endpoint):
 
     # XML Import absichern
     importer = XmlImporter(server)
-    await importer.import_xml("nodeset2_traffic_light.xml")
+    # await importer.import_xml("nodeset2_traffic_light.xml")
+    await importer.import_xml("Opc.Ua.Di.NodeSet2.xml")
+    await importer.import_xml("Opc.Ua.IA.NodeSet2.xml")
+    await importer.import_xml("Opc.Ua.Machinery.NodeSet2.xml")
+    await importer.import_xml("Opc.Ua.Machinery.Examples.NodeSet2.xml")
+    await importer.import_xml("test4.xml")
 
     # Debugging: Überprüfen der importierten Knoten
     children = await objects.get_children()
@@ -73,7 +78,7 @@ async def run_server(endpoint):
 
     async with server:
         print("Server läuft...")
-        await asyncio.sleep(500)
+        await asyncio.sleep(5000)
 
 
 async def run_client(endpoint):
@@ -151,9 +156,10 @@ async def main():
 
     # Starte Server und Client in separaten Aufgaben
     server_task = asyncio.create_task(run_server(endpoint))
-    client_task = asyncio.create_task(run_client(endpoint))
+    # client_task = asyncio.create_task(run_client(endpoint))
     # Lasse beide Aufgaben parallel laufen
-    await asyncio.gather(server_task, client_task)
+    # await asyncio.gather(server_task, client_task)
+    await asyncio.gather(server_task)
 
 
 
